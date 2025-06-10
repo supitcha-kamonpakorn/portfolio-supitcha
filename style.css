@@ -1,3 +1,4 @@
+
 /* Font & Base */
 body {
   font-family: 'Prompt', sans-serif;
@@ -260,7 +261,3 @@ body {
     font-size: 16px;
   }
 }
-
-git add .
-git commit -m "เพิ่ม responsive design สำหรับมือถือ"
-git push origin main
