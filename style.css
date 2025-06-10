@@ -181,3 +181,86 @@ body {
   transform: scale(1.2);
   color: #2575fc;
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #333;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+  background-color: #555;
+}
+
+/* ------------------------------
+   Responsive Design for Mobile
+------------------------------ */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav a {
+    margin: 0.5rem 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .skill-tags span {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  #about p,
+  #contact p {
+    font-size: 0.95rem;
+  }
+
+  .download-resume {
+    width: 100%;
+    text-align: center;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+}
+
+git add .
+git commit -m "เพิ่ม responsive design สำหรับมือถือ"
+git push origin main
