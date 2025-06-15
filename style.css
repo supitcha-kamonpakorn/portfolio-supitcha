@@ -306,13 +306,14 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 1.5rem;
-  justify-content: center;
-  align-content: center;
+  justify-items: center; /* จัดรูปให้อยู่ตรงกลางในแต่ละช่อง */
+  align-items: center;
   margin-top: 2rem;
-  max-width: 600px; /* ปรับขนาดความกว้างเพื่อควบคุมการจัดกลาง */
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 
 .skills-icons img {
