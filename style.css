@@ -443,3 +443,19 @@ body {
     position: relative;
   }
 }
+
+.project-button {
+  display: inline-block;
+  background-color: #2575fc;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #1a5edb;
+}
