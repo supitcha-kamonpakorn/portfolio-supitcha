@@ -8,20 +8,17 @@ window.addEventListener("scroll", function () {
   const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
   if (window.innerWidth <= 768) {
-    // มือถือ: ซ่อน header ตอน scroll ลง
     if (currentScroll > lastScrollTop && currentScroll > 80) {
       header.style.transform = "translateY(-100%)";
     } else {
       header.style.transform = "translateY(0)";
     }
   } else {
-    // คอม: ย่อ header
     if (currentScroll > 100) {
       header.classList.add("shrink");
     } else {
       header.classList.remove("shrink");
     }
-    // เคลียร์ transform ถ้าเคย set
     header.style.transform = "translateY(0)";
   }
 
@@ -29,9 +26,10 @@ window.addEventListener("scroll", function () {
 });
 
 const toggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav');
+const nav = document.querySelector('.nav'); // ✅ ใช้ class
 
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active');
 });
+
 
