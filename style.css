@@ -302,6 +302,18 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .skills-icons {
+    grid-template-columns: repeat(2, 1fr); /* 2 รูปต่อแถวบนมือถือ */
+    gap: 1rem;
+  }
+
+  .skills-icons img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .skills-icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
