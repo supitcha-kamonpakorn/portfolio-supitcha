@@ -25,7 +25,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease; /* เพิ่ม transform เข้าไปด้วย */
 }
 
 .header.shrink {
@@ -212,6 +212,22 @@ body {
 
 .back-to-top:hover {
   background-color: #555;
+}
+
+/* Fix anchor scroll offset for sticky header */
+#about,
+#projects,
+#experience,
+#skills,
+#contact {
+  scroll-margin-top: 120px; /* ปรับตามความสูงของ .header */
+}
+
+/* ------------------------------
+   Responsive Design for Mobile
+------------------------------ */
+@media (max-width: 768px) {
+  ...
 }
 
 /* ------------------------------
