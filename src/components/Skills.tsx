@@ -1,8 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BarChart3, Palette, Code, Database, Globe2, Settings } from 'lucide-react';
-import Image from 'next/image';
+import {
+  BarChart3,
+  Palette,
+  Code,
+  Database,
+  Globe2,
+  Settings,
+  FileSpreadsheet,
+  Presentation,
+  BarChart,
+  BookOpen,
+  CheckSquare,
+} from 'lucide-react';
 
 const skillCategories = [
   {
@@ -43,18 +54,18 @@ const skillCategories = [
 ];
 
 const skillIcons = [
-  { src: '/image/Google sheet-logo.png', alt: 'Google Sheets', name: 'Google Sheets' },
-  { src: '/image/Keynote-logo.png', alt: 'Keynote', name: 'Keynote' },
-  { src: '/image/Looker_studio-logo.png', alt: 'Looker Studio', name: 'Looker Studio' },
-  { src: '/image/Notion-logo.png', alt: 'Notion', name: 'Notion' },
-  { src: '/image/PowerBI-logo.png', alt: 'Power BI', name: 'Power BI' },
-  { src: '/image/Python-logo.png', alt: 'Python', name: 'Python' },
-  { src: '/image/R-logo.png', alt: 'R Programming', name: 'R Programming' },
-  { src: '/image/Redcap-logo.png', alt: 'RedCap', name: 'RedCap' },
-  { src: '/image/SQLite-logo.png', alt: 'SQLite', name: 'SQLite' },
-  { src: '/image/Trello-logo.png', alt: 'Trello', name: 'Trello' },
-  { src: '/image/WIX-Logo.png', alt: 'Wix', name: 'Wix' },
-  { src: '/image/Wordpress-logo.png', alt: 'WordPress', name: 'WordPress' },
+  { icon: FileSpreadsheet, name: 'Google Sheets', color: '#0F9D58' },
+  { icon: Presentation, name: 'Keynote', color: '#007AFF' },
+  { icon: BarChart, name: 'Looker Studio', color: '#4285F4' },
+  { icon: BookOpen, name: 'Notion', color: '#000000' },
+  { icon: BarChart3, name: 'Power BI', color: '#F2C811' },
+  { icon: Code, name: 'Python', color: '#3776AB' },
+  { icon: Code, name: 'R Programming', color: '#276DC3' },
+  { icon: Database, name: 'RedCap', color: '#CC0000' },
+  { icon: Database, name: 'SQLite', color: '#003B57' },
+  { icon: CheckSquare, name: 'Trello', color: '#0079BF' },
+  { icon: Globe2, name: 'Wix', color: '#0C6EFC' },
+  { icon: Globe2, name: 'WordPress', color: '#21759B' },
 ];
 
 export default function Skills() {
@@ -70,8 +81,9 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 relative" style={{ backgroundColor: 'var(--muted)' }}>
+      <div className="absolute inset-0 bg-gradient-to-tr from-emerald-400/5 via-blue-400/5 to-violet-400/5"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,30 +92,28 @@ export default function Skills() {
           className="max-w-6xl mx-auto"
         >
           <motion.h2
-            className="text-4xl font-bold mb-12 text-center font-poppins"
+            className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center font-poppins px-2 sm:px-0 p-6 liquid-glass-strong rounded-3xl"
             style={{ color: 'var(--foreground)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
           >
             Technical Skills
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
             {skillCategories.map((skill, index) => (
               <motion.div
                 key={index}
-                className="p-6 rounded-lg shadow-lg"
+                className="px-6 py-4 sm:px-8 sm:py-6 rounded-2xl liquid-glass-card border"
                 style={{
-                  backgroundColor: 'var(--card)',
-                  borderColor: 'var(--border)',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
                 }}
                 whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                  scale: 1.02,
+                  y: -8,
+                  scale: 1.05,
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -115,13 +125,21 @@ export default function Skills() {
                 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-start space-x-4">
-                  <skill.icon className="w-6 h-6 mt-1" style={{ color: 'var(--primary)' }} />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--card-foreground)' }}>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <skill.icon
+                    className="w-5 h-5 sm:w-6 sm:h-6 mt-1 flex-shrink-0"
+                    style={{ color: 'var(--primary)' }}
+                  />
+                  <div className="min-w-0">
+                    <h3
+                      className="text-base sm:text-lg font-semibold mb-1 sm:mb-2"
+                      style={{ color: 'var(--card-foreground)' }}
+                    >
                       {skill.category}
                     </h3>
-                    <p style={{ color: 'var(--muted-foreground)' }}>{skill.skills}</p>
+                    <p className="text-sm sm:text-base" style={{ color: 'var(--muted-foreground)' }}>
+                      {skill.skills}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -129,19 +147,18 @@ export default function Skills() {
           </div>
 
           {/* Skills Icons */}
-          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-6">
-            {skillIcons.map((icon, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-3 sm:gap-4 lg:gap-6">
+            {skillIcons.map((skillIcon, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center p-4 rounded-lg shadow-lg"
+                className="flex flex-col items-center px-2 py-4 sm:px-3 sm:py-5 rounded-2xl liquid-glass-strong border"
                 style={{
-                  backgroundColor: 'var(--card)',
-                  borderColor: 'var(--border)',
+                  borderColor: 'rgba(255, 255, 255, 0.4)',
                 }}
                 whileHover={{
-                  scale: 1.1,
-                  y: -5,
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                  scale: 1.2,
+                  y: -10,
+                  rotate: 5,
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -153,13 +170,13 @@ export default function Skills() {
                 }}
                 viewport={{ once: true }}
               >
-                <motion.div className="relative w-12 h-12 mb-2">
+                <motion.div className="relative w-10 h-10 sm:w-12 sm:h-12 mb-2 flex items-center justify-center">
                   <motion.div animate={index % 3 === 0 ? floatingAnimation.animate : {}}>
-                    <Image src={icon.src} alt={icon.alt} fill className="object-contain" />
+                    <skillIcon.icon className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: skillIcon.color }} />
                   </motion.div>
                 </motion.div>
-                <span className="text-xs text-center" style={{ color: 'var(--muted-foreground)' }}>
-                  {icon.name}
+                <span className="text-xs text-center leading-tight" style={{ color: 'var(--muted-foreground)' }}>
+                  {skillIcon.name}
                 </span>
               </motion.div>
             ))}

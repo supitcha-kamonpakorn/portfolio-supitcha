@@ -5,14 +5,15 @@ import { Phone, Mail, Globe } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-20" style={{ backgroundColor: 'var(--background)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-10 relative" style={{ backgroundColor: 'var(--background)' }}>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-400/5 via-blue-400/5 to-pink-400/5"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto p-8 rounded-3xl liquid-glass-strong shadow-2xl"
         >
           <motion.h2
             className="text-4xl font-bold mb-8 font-poppins"
@@ -33,11 +34,13 @@ export default function About() {
           <div className="flex justify-center space-x-8">
             <motion.a
               href="tel:0815516915"
-              className="flex flex-col items-center p-4 rounded-lg"
+              className="flex flex-col items-center p-4 rounded-2xl liquid-glass-hover border"
+              style={{
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+              }}
               whileHover={{
                 y: -5,
-                backgroundColor: 'var(--muted)',
-                scale: 1.05,
+                scale: 1.1,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -48,11 +51,13 @@ export default function About() {
             </motion.a>
             <motion.a
               href="mailto:supitcha.kamo@gmail.com"
-              className="flex flex-col items-center p-4 rounded-lg"
+              className="flex flex-col items-center p-4 rounded-2xl liquid-glass-hover border"
+              style={{
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+              }}
               whileHover={{
                 y: -5,
-                backgroundColor: 'var(--muted)',
-                scale: 1.05,
+                scale: 1.1,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -65,11 +70,13 @@ export default function About() {
               href="https://kangsomsupitcha.wordpress.com/my-portfolio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center p-4 rounded-lg"
+              className="flex flex-col items-center p-4 rounded-2xl liquid-glass-hover border"
+              style={{
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+              }}
               whileHover={{
                 y: -5,
-                backgroundColor: 'var(--muted)',
-                scale: 1.05,
+                scale: 1.1,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >

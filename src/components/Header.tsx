@@ -15,10 +15,9 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }: Hea
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
+      className="fixed top-0 left-0 right-0 z-50 liquid-glass-strong border-b"
       style={{
-        backgroundColor: 'var(--background)/80',
-        borderColor: 'var(--border)',
+        borderColor: 'rgba(255, 255, 255, 0.3)',
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -61,11 +60,13 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }: Hea
           {/* Theme Toggle */}
           <motion.button
             onClick={toggleTheme}
-            className="p-2 rounded-lg"
-            style={{ color: 'var(--foreground)' }}
+            className="p-2 rounded-2xl liquid-glass-hover border"
+            style={{
+              color: 'var(--foreground)',
+              borderColor: 'rgba(255, 255, 255, 0.3)',
+            }}
             whileHover={{
-              backgroundColor: 'var(--muted)',
-              scale: 1.05,
+              scale: 1.1,
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -75,11 +76,13 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }: Hea
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 rounded-lg"
+            className="md:hidden p-2 rounded-2xl liquid-glass-hover border"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.3)',
+            }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileHover={{
-              backgroundColor: 'var(--muted)',
-              scale: 1.05,
+              scale: 1.1,
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -93,10 +96,9 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }: Hea
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden border-t"
+            className="md:hidden border-t liquid-glass-strong"
             style={{
-              backgroundColor: 'var(--card)',
-              borderColor: 'var(--border)',
+              borderColor: 'rgba(255, 255, 255, 0.3)',
             }}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -133,11 +135,13 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }: Hea
               {/* Theme Toggle for Mobile */}
               <motion.button
                 onClick={toggleTheme}
-                className="flex items-center space-x-2 p-2 rounded-lg w-full text-left"
-                style={{ color: 'var(--muted-foreground)' }}
+                className="flex items-center space-x-2 p-2 rounded-2xl w-full text-left liquid-glass-hover border"
+                style={{
+                  color: 'var(--muted-foreground)',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                }}
                 whileHover={{
                   color: 'var(--primary)',
-                  backgroundColor: 'var(--muted)',
                   x: 10,
                   scale: 1.05,
                 }}
