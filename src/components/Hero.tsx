@@ -3,6 +3,37 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail } from 'lucide-react';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+// Typewriter component
+function TypewriterText({ text }: { text: string }) {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text]);
+
+  return (
+    <span>
+      {displayText}
+      <motion.span
+        className="inline-block ml-1"
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
+      >
+        |
+      </motion.span>
+    </span>
+  );
+}
 
 const skills = [
   { name: 'Excel', category: 'office' },
@@ -18,36 +49,21 @@ const skills = [
 ];
 
 export default function Hero() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: {
-      duration: 0.6,
-      ease: [0.6, -0.05, 0.01, 0.99],
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-8 px-4 sm:px-6 lg:px-8">
       <motion.div
         className="container mx-auto text-center"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.6,
+          ease: [0.6, -0.05, 0.01, 0.99],
+          type: 'spring',
+          stiffness: 100,
+          damping: 15,
+        }}
       >
-        <motion.div variants={fadeInUp} className="mb-8">
+        <motion.div className="mb-8">
           <motion.div
             className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl"
             whileHover={{
@@ -62,25 +78,20 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.p
-          variants={fadeInUp}
-          className="text-lg mb-2 font-poppins"
-          style={{ color: 'var(--muted-foreground)' }}
-        >
+        <motion.p className="text-lg mb-2 font-poppins" style={{ color: 'var(--muted-foreground)' }}>
           Hello, I am
         </motion.p>
 
         <motion.h1
-          variants={fadeInUp}
-          className="text-5xl md:text-7xl font-bold mb-8 font-poppins"
+          className="text-5xl md:text-7xl font-bold mb-8 font-poppins min-h-[1.2em]"
           style={{ color: 'var(--foreground)' }}
           whileHover={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          Data Analyst
+          <TypewriterText text="Project Manager & Data Analyst" />
         </motion.h1>
 
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mb-12 max-w-4xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
           {skills.map((skill, index) => (
             <motion.span
               key={skill.name}
@@ -106,44 +117,7 @@ export default function Hero() {
               {skill.name}
             </motion.span>
           ))}
-        </motion.div>
-
-        <motion.div variants={fadeInUp} className="flex justify-center space-x-6">
-          <motion.a
-            href="tel:0815516915"
-            className="flex items-center space-x-2 px-6 py-3 text-white rounded-lg shadow-lg"
-            style={{ backgroundColor: 'var(--primary)' }}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: 'var(--primary)',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          >
-            <Phone size={20} />
-            <span>Call</span>
-          </motion.a>
-          <motion.a
-            href="mailto:supitcha.kamo@gmail.com"
-            className="flex items-center space-x-2 px-6 py-3 border-2 rounded-lg"
-            style={{
-              borderColor: 'var(--primary)',
-              color: 'var(--primary)',
-            }}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: 'var(--primary)',
-              color: '#ffffff',
-              borderColor: 'var(--primary)',
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          >
-            <Mail size={20} />
-            <span>Email</span>
-          </motion.a>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

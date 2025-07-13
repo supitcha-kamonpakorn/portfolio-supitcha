@@ -28,7 +28,7 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              className="p-6 rounded-lg shadow-lg"
+              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
               style={{ backgroundColor: 'var(--card)' }}
               whileHover={{
                 y: -5,
@@ -38,11 +38,12 @@ export default function Contact() {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <Mail className="w-8 h-8 mx-auto mb-4" style={{ color: 'var(--primary)' }} />
-              <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--card-foreground)' }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--card-foreground)' }}>
                 Email
               </h3>
               <motion.a
                 href="mailto:supitcha.kamo@gmail.com"
+                className="text-center break-words px-2"
                 style={{ color: 'var(--primary)' }}
                 whileHover={{ color: 'var(--primary)' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -52,7 +53,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.div
-              className="p-6 rounded-lg shadow-lg"
+              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
               style={{ backgroundColor: 'var(--card)' }}
               whileHover={{
                 y: -5,
@@ -62,13 +63,14 @@ export default function Contact() {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <Globe className="w-8 h-8 mx-auto mb-4" style={{ color: 'var(--primary)' }} />
-              <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--card-foreground)' }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--card-foreground)' }}>
                 Website
               </h3>
               <motion.a
                 href="https://kangsomsupitcha.wordpress.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-center break-words px-2"
                 style={{ color: 'var(--primary)' }}
                 whileHover={{ color: 'var(--primary)' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -78,7 +80,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.div
-              className="p-6 rounded-lg shadow-lg"
+              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
               style={{ backgroundColor: 'var(--card)' }}
               whileHover={{
                 y: -5,
@@ -88,13 +90,14 @@ export default function Contact() {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <Download className="w-8 h-8 mx-auto mb-4" style={{ color: 'var(--primary)' }} />
-              <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--card-foreground)' }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--card-foreground)' }}>
                 Resume
               </h3>
               <motion.a
                 href="/CV_Supitcha_2025.pdf"
                 target="_blank"
-                download
+                download="CV_Supitcha_2025.pdf"
+                className="text-center break-words px-2"
                 style={{ color: 'var(--primary)' }}
                 whileHover={{ color: 'var(--primary)' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
