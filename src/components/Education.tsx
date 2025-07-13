@@ -20,8 +20,9 @@ const educationData = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-20" style={{ backgroundColor: 'var(--background)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-20 relative" style={{ backgroundColor: 'var(--background)' }}>
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-rose-400/5 to-indigo-400/5"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,13 +31,13 @@ export default function Education() {
           className="max-w-4xl mx-auto"
         >
           <motion.h2
-            className="text-4xl font-bold mb-12 text-center font-poppins"
+            className="text-4xl font-bold mb-12 text-center font-poppins p-6 liquid-glass-strong rounded-3xl"
             style={{ color: 'var(--foreground)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
           >
             Education
           </motion.h2>
@@ -45,15 +46,14 @@ export default function Education() {
             {educationData.map((edu, index) => (
               <motion.div
                 key={index}
-                className="p-6 rounded-lg border-l-4"
+                className="p-6 rounded-3xl border-l-4 liquid-glass-card"
                 style={{
-                  backgroundColor: 'var(--muted)',
                   borderColor: 'var(--chart-2)',
                 }}
                 whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                  scale: 1.02,
+                  y: -8,
+                  scale: 1.03,
+                  rotate: 1,
                 }}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}

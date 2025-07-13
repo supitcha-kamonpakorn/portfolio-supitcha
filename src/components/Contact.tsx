@@ -5,8 +5,9 @@ import { Mail, Globe, Download } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 relative" style={{ backgroundColor: 'var(--muted)' }}>
+      <div className="absolute inset-0 bg-gradient-to-tr from-pink-400/5 via-blue-400/5 to-purple-400/5"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,25 +16,25 @@ export default function Contact() {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.h2
-            className="text-4xl font-bold mb-12 font-poppins"
+            className="text-4xl font-bold mb-12 font-poppins p-6 liquid-glass-strong rounded-3xl"
             style={{ color: 'var(--foreground)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
           >
             Contact Me
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
-              style={{ backgroundColor: 'var(--card)' }}
+              className="p-8 rounded-3xl liquid-glass-card min-h-[200px] flex flex-col justify-center border"
+              style={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
               whileHover={{
-                y: -5,
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                scale: 1.02,
+                y: -10,
+                scale: 1.05,
+                rotate: 2,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -53,12 +54,12 @@ export default function Contact() {
             </motion.div>
 
             <motion.div
-              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
-              style={{ backgroundColor: 'var(--card)' }}
+              className="p-8 rounded-3xl liquid-glass-card min-h-[200px] flex flex-col justify-center border"
+              style={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
               whileHover={{
-                y: -5,
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                scale: 1.02,
+                y: -10,
+                scale: 1.05,
+                rotate: -2,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -72,7 +73,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="text-center break-words px-2"
                 style={{ color: 'var(--primary)' }}
-                whileHover={{ color: 'var(--primary)' }}
+                whileHover={{ color: 'var(--primary)', scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 kangsomsupitcha.wordpress.com
@@ -80,12 +81,12 @@ export default function Contact() {
             </motion.div>
 
             <motion.div
-              className="p-8 rounded-lg shadow-lg min-h-[200px] flex flex-col justify-center"
-              style={{ backgroundColor: 'var(--card)' }}
+              className="p-8 rounded-3xl liquid-glass-card min-h-[200px] flex flex-col justify-center border"
+              style={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
               whileHover={{
-                y: -5,
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                scale: 1.02,
+                y: -10,
+                scale: 1.05,
+                rotate: 2,
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >

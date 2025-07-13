@@ -1,11 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail } from 'lucide-react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-// Typewriter component
+
 function TypewriterText({ text }: { text: string }) {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,9 +49,10 @@ const skills = [
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-8 px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-8 px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 animate-pulse"></div>
       <motion.div
-        className="container mx-auto text-center"
+        className="container mx-auto text-center relative z-10"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -65,15 +65,19 @@ export default function Hero() {
       >
         <motion.div className="mb-8">
           <motion.div
-            className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl"
+            className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 liquid-glass-strong"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.5)',
+            }}
             whileHover={{
-              scale: 1.05,
-              rotate: 5,
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+              scale: 1.1,
+              rotate: 10,
+              boxShadow: '0 25px 50px -12px rgba(31, 38, 135, 0.6)',
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
             <Image src="/Kangsom_Supitcha.png" alt="Supitcha Kamonpakorn" fill className="object-cover" priority />
           </motion.div>
         </motion.div>
@@ -83,7 +87,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-8 font-poppins min-h-[1.2em]"
+          className="text-5xl md:text-7xl font-bold mb-8 font-poppins min-h-[1.2em] liquid-glass-card rounded-3xl p-6"
           style={{ color: 'var(--foreground)' }}
           whileHover={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -91,20 +95,26 @@ export default function Hero() {
           <TypewriterText text="Project Manager & Data Analyst" />
         </motion.h1>
 
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto p-6 liquid-glass rounded-3xl">
           {skills.map((skill, index) => (
             <motion.span
               key={skill.name}
-              className="px-4 py-2 text-white rounded-full text-sm font-medium shadow-lg"
+              className="px-4 py-2 rounded-full text-sm font-medium liquid-glass-hover"
               style={{
-                background: 'linear-gradient(to right, var(--primary), var(--chart-2))',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+                borderColor: 'rgba(255, 255, 255, 0.4)',
+                color: 'var(--foreground)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                backdropFilter: 'blur(15px)',
+                boxShadow: '0 8px 25px rgba(31, 38, 135, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
               }}
               whileHover={{
-                scale: 1.05,
-                y: -2,
-                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                scale: 1.1,
+                y: -5,
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2))',
+                boxShadow: '0 15px 35px rgba(31, 38, 135, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
               }}
-              whileTap={{ scale: 0.98 }}
+              whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{

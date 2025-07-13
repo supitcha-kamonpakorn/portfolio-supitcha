@@ -81,8 +81,9 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section id="skills" className="py-20 relative" style={{ backgroundColor: 'var(--muted)' }}>
+      <div className="absolute inset-0 bg-gradient-to-tr from-emerald-400/5 via-blue-400/5 to-violet-400/5"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,13 +92,13 @@ export default function Skills() {
           className="max-w-6xl mx-auto"
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center font-poppins px-2 sm:px-0"
+            className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center font-poppins px-2 sm:px-0 p-6 liquid-glass-strong rounded-3xl"
             style={{ color: 'var(--foreground)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
           >
             Technical Skills
           </motion.h2>
@@ -106,15 +107,13 @@ export default function Skills() {
             {skillCategories.map((skill, index) => (
               <motion.div
                 key={index}
-                className="px-6 py-4 sm:px-8 sm:py-6 rounded-lg shadow-lg"
+                className="px-6 py-4 sm:px-8 sm:py-6 rounded-2xl liquid-glass-card border"
                 style={{
-                  backgroundColor: 'var(--card)',
-                  borderColor: 'var(--border)',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
                 }}
                 whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                  scale: 1.02,
+                  y: -8,
+                  scale: 1.05,
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -152,15 +151,14 @@ export default function Skills() {
             {skillIcons.map((skillIcon, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center px-2 py-4 sm:px-3 sm:py-5 rounded-lg shadow-lg"
+                className="flex flex-col items-center px-2 py-4 sm:px-3 sm:py-5 rounded-2xl liquid-glass-strong border"
                 style={{
-                  backgroundColor: 'var(--card)',
-                  borderColor: 'var(--border)',
+                  borderColor: 'rgba(255, 255, 255, 0.4)',
                 }}
                 whileHover={{
-                  scale: 1.1,
-                  y: -5,
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                  scale: 1.2,
+                  y: -10,
+                  rotate: 5,
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
